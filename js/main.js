@@ -33,42 +33,6 @@ if (document.addEventListener) {
 
 
 
-var tabs =document.getElementsByClassName("tabs");
-
-for (var i = 0; i < tabs.length; i++) {
-    alert("by");
-    tabs[i].addEventListener("click", set_tab);
-  };
-
-
-
-
-
-var set_tab = function(){
-        var tabsList =document.getElementsByClassName("tabs");
-        // current tab hash
-        var active=this.hash;
-
-    for (var i = 0; i < tabsList.length; i++) {
-        if (tabsList[i].hash == active) {
-          x=tabsList[i].parentNode;
-          // set the tab toggle class to be active-tab
-          x.className+=' active';
-        } else {
-          // remove the tab-active class from the other tabs
-          x=tabsList[i].parentNode;
-          x.className='';
-          // hide the other tabs content
-        $(tabsList[i].hash).classList.add('hidden');
-        }
-      }
-    // show current tab content
-     $(active).classList.remove('hidden');
-
-     localStorage.setItem("lastTab", active);
-
-
-};
 
 
 
@@ -78,17 +42,9 @@ function start_page(){
         $("#quickreports").classList.toggle('hidden');
 
     });
-    var tabs =document.getElementsByClassName("links");
-
-    for (var i = 0; i < tabs.length; i++) {
-    alert(tabs[i]);
-    tabs[i].addEventListener("click", set_tab);
-     };
-     document.getElementById(" id="tabs"").addEventListener('click',function(e){
-        $("#quickreports").classList.toggle('hidden');
-
-    });
-
+    alert("hi");
+        $(".notifications").innerHTML = config.notification;
+       
 }
 
 window.onLoad= start_page();
