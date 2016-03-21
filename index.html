@@ -81,7 +81,7 @@
 				<li class="option" ><a href="#public-folders"  id="tab">Public Folders</a></li>
 			</ul>
 			<div class="tabs-content">
-				
+
 				<div id="quick-reports">
 						<select class="adress" name="adress" id="quick-reports-adress">
 							<option value="http://math.haifa.ac.il/lembergdan/">fade</option>
@@ -90,7 +90,7 @@
 	               		</select>
 	               		<div class="quick-reports-options">
 		               		<button class="options-putton" id="quick-reports-options-putton"></button>
-		               		<a href="http://www.w3schools.com" target="_blank" class="expand-link"><img src="./img/icons/expand.png"></a>
+		               		<a href="http://www.w3schools.com" target="_blank" class="expand-link" id="quick-reports-expand-link"><img src="./img/icons/expand.png"></a>
 	               		</div>
 
 
@@ -136,13 +136,14 @@
                         </fieldset>
 
                         <div class="cancel-save">
-                          <input id="quickreports-cancel" value="Cancel" type="submit">
-                                     
-                             <input id="quickrports-save" value="Save" type="submit">
+                         <input id="quickreports-cancel" value="Cancel" type="submit">
+                         <input id="quickrports-save" value="Save" type="submit">
                         </div>
                     </form>
 
-
+                 		<div class="content-quickreports folder-content">
+                		<iframe class="frame iframe-quickreports" src="" frameborder="0" id="quickreportsiframe"></iframe>
+                        </div>  
 
 
 
