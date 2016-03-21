@@ -193,9 +193,9 @@ function savelinksReports () {
     
         
     }
-    alert(name[0]);
-    alert(url[0]);
-    alert(array[0]);
+    alert(name[0].children[1].value;);
+    alert(url[0].children[1].value;);
+    alert(array[0].name);
     var linkarray = JSON.parse(localStorage.getItem("linkarray"));
     if(linkarray==null)
     {
@@ -218,7 +218,7 @@ function savelinksReports () {
         
     }
 
-    alert(linkarray[0]);
+    alert(linkarray[0].name);
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
 
         updatelinksReports();
