@@ -30,29 +30,46 @@ if (document.addEventListener) {
 
 };
 
-function loadnotifications(n){
-  if(n != undefined){
-        $(".notifications").innerHTML = n;
-
-     $(".notifications").classList.remove('hidden');
- }
- else
-    {  
-        $(".notifications").className+=' hidden';
- }
+function updateNotifications(notif){
+  if(notif != undefined){
+        $(".notifications").innerHTML = notif;
+    }
        
+}
+function updateNotifications(quick){
+    var quickList=all(".nav-section");
+
+  for (var i = 0; i < navSections.length; i++) {
+    // set header for every nav-section
+    quickList[i].innerHTML = "<p>" + quick[i].label + "</p>" + quickList[i].innerHTML;
+    // set background for every nav-section
+    quickList[i].style.background = "black url(./img/icons/" + quick[i].icon + ".png)  left 50% top 70px no-repeat";
+    }
+  var menuList = all(".menu-caption");
+  for (var i = 0; i < menuCaptions.length; i++) {
+    // menu header
+    menuList[i].innerHTML = "<p>" + quick[i].actionsLabel + "</p>";
+  }
+  var actionList = all(".action-list");
+  for (var i = 0; i < actionList.length; i++) {
+    actions = quick[i].actions;
+    for (var j = 0; j < actions.length; j++) {
+      // set links
+      actionList[i].innerHTML += "<li><a href=\"" + actions[j].url + "\">" + actions[j].label + "</a></li>"
+    }
+  }
 }
 
 
 
 
-function loadpages (config) {
-        loadnotifications(config.notification);
+function updatePage (config) {
+        updateNotifications(config.notification);
+         updateActionList(config.quickActions);
 }
 
 function start_page(){
-    UTILS.ajax("data/config.json" , {done: loadpages});
-           
+    UTILS.ajax("data/config.json" , {done: updatePage});       
 
     document.getElementById("quick-reports-options-putton").addEventListener('click',function(e){
         $("#quickreports").classList.toggle('hidden');

@@ -52,16 +52,18 @@ nav{
 }
 .last-nav{
 	float:right;
-	background: url("../img/icons/actions-help.png") left 50% top 70px no-repeat black;
+/*	background: url("../img/icons/actions-help.png") left 50% top 70px no-repeat black;
+*/
 }
 .second-nav
 {
-	background: url("../img/icons/action-report-top.png") left 50% top 70px no-repeat black;
+	/*background: url("../img/icons/action-report-top.png") left 50% top 70px no-repeat black;
+*/
 }
 .first-nav
 {
-	   background: url("../img/icons/action-report-new.png") left 50% top 70px no-repeat black;
-	float: left;
+	  /* background: url("../img/icons/action-report-new.png") left 50% top 70px no-repeat black;
+	*/float: left;
 }
 /*.first-menu{
 	bottom: -44px;
