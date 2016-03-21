@@ -30,21 +30,35 @@ if (document.addEventListener) {
 
 };
 
+function loadnotifications(n){
+  if(n != undefined){
+        $(".notifications").innerHTML = n;
+
+     $(".notifications").classList.remove('hidden');
+ }
+ else
+    {  
+        $(".notifications").className+=' hidden';
+ }
+       
+}
 
 
 
 
-
-
+function loadpages (config) {
+        loadnotifications(config.notification);
+}
 
 function start_page(){
+    UTILS.ajax("data/config.json" , {done: loadpages});
+           
+
     document.getElementById("quick-reports-options-putton").addEventListener('click',function(e){
         $("#quickreports").classList.toggle('hidden');
 
     });
     alert("hi");
-    alert(config.notification);
-        $(".notifications").innerHTML = "fadi";//config.notification;
        
 }
 
