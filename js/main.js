@@ -39,14 +39,14 @@ function updateNotifications(notif){
 function updateNotifications(quick){
     var quickList=all(".nav-section");
 
-  for (var i = 0; i < navSections.length; i++) {
+  for (var i = 0; i < quickList.length; i++) {
     // set header for every nav-section
     quickList[i].innerHTML = "<p>" + quick[i].label + "</p>" + quickList[i].innerHTML;
     // set background for every nav-section
     quickList[i].style.background = "black url(./img/icons/" + quick[i].icon + ".png)  left 50% top 70px no-repeat";
     }
   var menuList = all(".menu-caption");
-  for (var i = 0; i < menuCaptions.length; i++) {
+  for (var i = 0; i < menuList.length; i++) {
     // menu header
     menuList[i].innerHTML = "<p>" + quick[i].actionsLabel + "</p>";
   }
