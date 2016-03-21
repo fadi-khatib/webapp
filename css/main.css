@@ -141,8 +141,15 @@ nav{
     height: 30px;
 }
 
-.first-option , .sec-option , .therd-option {
+/*.first-option , .sec-option , .therd-option {
 	margin-right:4%;
+}*/
+
+.option{
+	margin-right:4%;
+}
+.option:last-child{
+	margin-right: 0;
 }
 .tabs-content{
     width: 100%;
@@ -198,4 +205,10 @@ nav{
 }
 .hidden{
 	display: none;
+}
+.active-tab{
+	background-color:#E5E5E5 !important;
+}
+.active-tab > a{
+	color: black !important;
 }

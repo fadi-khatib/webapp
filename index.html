@@ -75,12 +75,13 @@
 
 		<section class="tabs">
 			<ul class="tabs-options">
-				<li class="first-option" ><a href="#quick-reports" id="tabss">Quick Reports</a></li>
-				<li class="sec-option"  ><a href="#my-folders" id="tabs">My Folders</a></li>
-				<li class="therd-option"  ><a href="#my-team-folders" id="tabs">My Team Folders</a></li>
-				<li class="last-option" ><a href="#public-folders"  id="tabs">Public Folders</a></li>
+				<li class="option active-tab" ><a href="#quick-reports" id="tab">Quick Reports</a></li>
+				<li class="option"  ><a href="#my-folders" id="tab">My Folders</a></li>
+				<li class="option"  ><a href="#my-team-folders" id="tab">My Team Folders</a></li>
+				<li class="option" ><a href="#public-folders"  id="tab">Public Folders</a></li>
 			</ul>
 			<div class="tabs-content">
+				
 				<div id="quick-reports">
 						<select class="adress" name="adress" id="quick-reports-adress">
 							<option value="http://math.haifa.ac.il/lembergdan/">fade</option>
@@ -147,13 +148,89 @@
 
 					</div>
 
-				<div id="my-folders">
+				<div id="my-folders" class="hidden">
+					<div class="quick-reports-options">
+		               	<a href="http://www.w3schools.com" target="_blank" class="expand-link"><img src="./img/icons/expand.png"></a>
+	               	</div>
+	            	<div class="folder-content">
+	                	<iframe src="http://www.w3schools.com" frameborder="0" class="frame" id="my-folders-src"></iframe>
+	            	</div>
 				</div>
 
-				<div id="my-team-folders">
+				<div id="my-team-folders" class="hidden">
+
+						<div id="quick-reports">
+						<select class="adress" name="adress" id="my-team-folder-adress">
+							<option value="http://math.haifa.ac.il/lembergdan/">fade</option>
+							<option value="http://math.haifa.ac.il/lembergdan/">majed</option>
+							<option value="http://math.haifa.ac.il/lembergdan/">faaaa</option>
+	               		</select>
+	               		<div class="quick-reports-options" id="my-team-folders-options">
+		               		<button class="options-putton" id="quick-reports-options-putton"></button>
+		               		
+	               		</div>
+
+
+
+
+
+
+                    <form class="reports-form" runat="server" id="quickreports" onsubmit="return false;">
+                        <fieldset class="fieldset">
+                            <span class="reportnumber" id="folder01">folder01</span>
+                            <div class="inputreport reportname">
+                                <label class="reportlabel" for="folder-name1">Name</label>
+                                <input class="reportinput" id="folder-name1" type="text"  placeholder="Name">
+                            </div>
+                            <div class="inputreport reporturl">
+                                <label class="reportlabel" for="url1">URL</label>
+                                <input class="reportinput urlinput" id="folder-url1"   placeholder="URL">
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <span class="reportnumber" id="folder02">folder02</span>
+                            <div class="inputreport reportname">
+                                <label class="reportlabel" for="folder-name2">Name</label>
+                                <input class="reportinput" id="folder-name2" type="text"  placeholder="Name">
+                            </div>
+                            <div class="inputreport reporturl">
+                                <label class="reportlabel" for="folder-url2">URL</label>
+                                <input class="reportinput urlinput" id="folder-url2"   placeholder="URL">
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <span class="reportnumber" id="folder03">folder03</span>
+                            <div class="inputreport reportname">
+                                <label class="reportlabel" for="folder-name3">Name</label>
+                                <input class="reportinput" id="folder-name3" type="text"  placeholder="Name">
+                            </div>
+                            <div class="inputreport reporturl">
+                                <label class="reportlabel" for="folder-url3">URL</label>
+                                <input class="reportinput urlinput" id="folder-url3"  placeholder="URL">
+                            </div>
+                        </fieldset>
+
+                        <div class="cancel-save">
+                          <input id="quickreports-cancel" value="Cancel" type="submit">
+                                     
+                             <input id="quickrports-save" value="Save" type="submit">
+                        </div>
+                    </form>
+
+
+
+
 				</div>
 
-				<div id="public-folders">
+				<div id="public-folders" class="hidden">
+					<div class="quick-reports-options">
+		               	<a href="http://www.w3schools.com" target="_blank" class="expand-link"><img src="./img/icons/expand.png"></a>
+	               	</div>
+	            	<div class="folder-content">
+	                	<iframe src="" frameborder="0" class="frame" id="my-folders-src"></iframe>
+	            	</div>
 				</div>
 			</div>
 		</section>

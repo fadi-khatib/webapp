@@ -61,7 +61,65 @@ function  updateActionList(quick){
   }
 }
 
+function active_tab(){
+   
+    var ref=this.hash || window.location.hash;//||
+    var all_tabs=all("#tab");
+    for(var i=0 ; i<all_tabs.length ; i++){
 
+        if(all_tabs[i].hash===ref){
+            all_tabs[i].parentNode.className+=" active-tab";
+              $(all_tabs[i].hash).classList.remove('hidden');
+        }
+        else{
+             all_tabs[i].parentNode.className= 'option';
+
+            $(all_tabs[i].hash).classList.add('hidden');
+        }
+    }
+}
+function  keyEvent(e){
+    var hashLocation=window.location.hash;
+    switch (e.keyCode) {
+        case 37:{
+                if(hashLocation=="#my-team-folders"){
+                window.location.hash="#my-folders";
+                active_tab();
+
+                }
+               else if (hashLocation=="#my-folders"){
+                window.location.hash="#quick-reports";
+                active_tab();
+               
+               }
+               else if (hashLocation=="#public-folders") {
+                window.location.hash="#my-team-folders";
+                active_tab();
+                }
+
+            break;
+        }
+        case 39:{
+            if (hashLocation=="#quick-reports"){
+                    window.location.hash="#my-folders";
+                active_tab();
+               
+               }
+
+            if(hashLocation=="#my-folders"){
+                window.location.hash="#my-team-folders";
+                active_tab();
+                }
+             
+            if (hashLocation=="#my-team-folders") {
+                    window.location.hash="#public-folders";
+                  active_tab();
+                }
+                
+            break;
+        }
+    }
+}
 
 
 function updatePage (config) {
@@ -76,7 +134,15 @@ function start_page(){
         $("#quickreports").classList.toggle('hidden');
 
     });
-    alert("hi");
+
+    var all_tabs=all("#tab");
+    for(var i=0;i<all_tabs.length;i++){
+
+        all_tabs[i].addEventListener('click',active_tab)
+    }
+    document.addEventListener('keydown',keyEvent);
+
+
        
 }
 
