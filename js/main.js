@@ -52,8 +52,8 @@ function  updateActionList(quick){
   }
   var actionList = all(".action-list");
   for (var i = 0; i < actionList.length; i++) {
-    alert(actionList.length);
-    actions = actionList[i].actions;
+
+    actions = quick[i].actions;
     for (var j = 0; j < actions.length; j++) {
       // set links
       actionList[i].innerHTML += "<li><a href=\"" + actions[j].url + "\">" + actions[j].label + "</a></li>"
