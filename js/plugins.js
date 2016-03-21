@@ -170,6 +170,11 @@ var UTILS = (function () {
 
             // Fire the request
             xhr.send(null);
-        }
+        },
+                getDataRequest: function(){
+
+        UTILS.ajax('data/config.json');
+      
+    }
     };
 }());
