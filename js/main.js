@@ -36,7 +36,7 @@ function updateNotifications(notif){
     }
        
 }
-function updateNotifications(quick){
+function  updateActionList(quick){
     var quickList=all(".nav-section");
 
   for (var i = 0; i < quickList.length; i++) {
