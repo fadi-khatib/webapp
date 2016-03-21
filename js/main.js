@@ -52,7 +52,7 @@ function updateNotifications(quick){
   }
   var actionList = all(".action-list");
   for (var i = 0; i < actionList.length; i++) {
-    actions = quick[i].actions;
+    actions = actionList[i].actions;
     for (var j = 0; j < actions.length; j++) {
       // set links
       actionList[i].innerHTML += "<li><a href=\"" + actions[j].url + "\">" + actions[j].label + "</a></li>"
