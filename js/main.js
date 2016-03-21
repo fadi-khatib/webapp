@@ -193,6 +193,9 @@ function savelinksReports () {
     
         
     }
+    alert(name[0]);
+    alert(url[0]);
+    alert(array[0]);
     var linkarray = JSON.parse(localStorage.getItem("linkarray"));
     if(linkarray==null)
     {
@@ -211,10 +214,11 @@ function savelinksReports () {
      for (i=0;i<3;i++)
     {
         linkarray[i].name=array[i].name;
-               linkarray[i].url=array[i].url;
+        linkarray[i].url=array[i].url;
         
     }
 
+    alert(linkarray[0]);
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
 
         updatelinksReports();
@@ -290,9 +294,8 @@ function selectIFrame() {
 function quickrports_save(){
 
        // if(checkinputs()==true){
-        savelinksReports();
+            savelinksReports();
            $("#quickreports").classList.toggle('hidden');
-          
            selectIFrame();
         
     //}
