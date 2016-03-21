@@ -156,7 +156,7 @@ var UTILS = (function () {
                                     options.fail.call(xhr, 'Bad XML file');
                                     return;
                                 }
-                            }
+                           getDataRequest }
                         }
 
                         // Trigger done callback with the proper response
