@@ -123,36 +123,28 @@ function  keyEvent(e){
 
 
 
-/*function checkinputs(){
+function checkinputs(){
     var name=[];
     var url=[];
     var i;
-    var urlExp = new RegExp("https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}", i); 
+   /* var urlExp = new RegExp("https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}", i); 
     var linkExp = new RegExp(/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/);
-
+*/
     name = all(".reportname");
     url = all(".reporturl");
     // check if empty
-    for(i=0;i<6;i++){
+    for(i=0;i<3;i++){
         if ((name[i].children[1].value =="") && (url[i].children[1].value !=""))
            {
             name[i].children[1].style.border="thick solid red";
             name[i].children[1].focus();
             return false;
            }
-      else  if ((name[i].children[1].value !="") && ((url[i].children[1].value =="")|| (!linkExp.test(url[i].children[1].value))))
+      else  if ((name[i].children[1].value !="") && (url[i].children[1].value ==""))
         {
             url[i].children[1].style.border="thick solid red";
             url[i].children[1].focus();
             return false;
-        }
-
-        
-       else if((!urlExp.test(url[i].children[1].value)) &&((name[i].children[1].value !="")) &&((url[i].children[1].value !=""))){
-            var newURL = "http://www.";
-            newURL+=url[i].children[1].value ;
-            url[i].children[1].value  = newURL;
-            url[i].children[1].text  = newURL;
         }
         else if((url[i].children[1].value =="") && (name[i].children[1].value =="") )
         {
@@ -170,7 +162,7 @@ function  keyEvent(e){
     }
     return true;
 }
-*/
+
 /*****************************************************************************************************/
 function savelinksReports () {
     var name=[];
@@ -193,8 +185,8 @@ function savelinksReports () {
     
         
     }
-    alert(name[0].children[1].value;);
-    alert(url[0].children[1].value;);
+    alert(name[0].children[1].value);
+    alert(url[0].children[1].value);
     alert(array[0].name);
     var linkarray = JSON.parse(localStorage.getItem("linkarray"));
     if(linkarray==null)
@@ -293,12 +285,12 @@ function selectIFrame() {
 /*****************************************************************************************************************/
 function quickrports_save(){
 
-       // if(checkinputs()==true){
-            savelinksReports();
+       if(checkinputs()==true){
+    /*        savelinksReports();
            $("#quickreports").classList.toggle('hidden');
            selectIFrame();
-        
-    //}
+      */  
+    }
 
 }
 
