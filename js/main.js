@@ -43,6 +43,7 @@ function start_page(){
 
     });
     alert("hi");
+    alert(config.notification);
         $(".notifications").innerHTML = "fadi";//config.notification;
        
 }
