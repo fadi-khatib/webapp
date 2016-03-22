@@ -156,6 +156,39 @@ function checkinputs(){
     return true;
 }
 
+/***********************************************************************************/
+function folderScheckinputs(){
+    var names=[];
+    var url=[];
+    
+    names = all(".foldername");
+    url = all(".folderurl");
+    for(var i=0;i<3;i++){
+        if ((names[i].children[1].value =="") && (url[i].children[1].value !=""))
+           {
+            names[i].children[1].style.border="thick solid red";
+            names[i].children[1].focus();
+            return false;
+           }
+      else  if ((names[i].children[1].value !="") && (url[i].children[1].value ==""))
+        {
+            url[i].children[1].style.border="thick solid red";
+            url[i].children[1].focus();
+            return false;
+        }
+        else if((url[i].children[1].value =="") && (names[i].children[1].value =="") )
+        {
+            url[i].children[1].style.border="none";
+             names[i].children[1].style.border="none";
+          
+        }
+    }
+    for(var i=0;i<3;i++){
+    url[i].children[1].style.border="none";
+    names[i].children[1].style.border="none";
+    }
+    return true;
+}
 /*****************************************************************************************************/
 function savelinksReports () {
     var names=[];
@@ -205,6 +238,58 @@ function savelinksReports () {
         //updatelinksReports();
 
 }
+
+
+
+
+function savelinksFolders(){
+    var names=[];
+    var url=[];
+    var array=[];
+    names = all(".foldername");
+    url = all(".folderurl");
+
+    
+    for (var i=0;i<3;i++)
+    {
+        
+        var rn = names[i].children[1].value;
+        var ru = url[i].children[1].value;
+       // if(rn!=""&&ru!=""){   
+            array.push({
+                    "name":rn,
+                    "url":ru
+            });
+        //}
+        
+    }
+    var foldersarray = JSON.parse(localStorage.getItem("foldersarray"));
+    if(foldersarray==null){
+        foldersarray=[];
+        for (i=0;i<3;i++)
+        {
+        foldersarray.push({
+                "name":"",
+                "url":""
+
+        });
+        }
+    }
+    $("#my-team-folder-adress").innerHTML="";
+     for (i=0;i<3;i++)
+    {
+        foldersarray[i].name=array[i].name;
+        foldersarray[i].url=array[i].url;
+        if(array[i].name!="" && array[i].url!="" ){
+            $("#my-team-folder-adress").innerHTML+="<option value='"+foldersarray[i].url+"'>"+foldersarray[i].name+"</option>";
+        }
+    }
+    localStorage.setItem("foldersarray" , JSON.stringify(foldersarray));
+    setFoldersAdress();
+    //var link = JSON.parse(localStorage.getItem("linkarray"));
+        //updatelinksReports();
+
+}
 /*************************************************************************************/
 
 /*****************************************************************************************************************/
@@ -219,6 +304,13 @@ function quickrports_save(){
     }
 
 }
+function folders_save(){
+          if(folderScheckinputs()==true){
+           savelinksFolders();
+           $("#my-team-folders-form").classList.toggle('hidden');
+       
+    } 
+}
 /*************************************************************************************************************/
 function setReportAdress() {
     var el=document.getElementById("quick-reports-adress");
@@ -229,17 +321,27 @@ function setReportAdress() {
         $("#quick-reports-expand-link").classList.remove('hidden');
     }
     else{
+        $('#quickreportsiframe').src="";
         $("#quick-reports-adress").classList.add('hidden');
         $("#quick-reports-expand-link").classList.add('hidden');
     }
         return false;
 }
 
- function setFolderAdress() {
+ function setFoldersAdress(){
 
      var el=document.getElementById("my-team-folder-adress");
-     if(el.options!==undefined)
-  $('#my-folders-src').src=el.options[el.selectedIndex].value;
+     if(el.options[el.selectedIndex]!=null){
+        $('#folders-expand-link').href=el.options[el.selectedIndex].value;
+        $('#my-folders-src').src=el.options[el.selectedIndex].value;
+        $("#my-team-folder-adress").classList.remove('hidden');
+        $("#folders-expand-link").classList.remove('hidden');
+        }
+      else{
+        $('#my-folders-src').src="";
+        $("#my-team-folder-adress").classList.add('hidden');
+        $("#folders-expand-link").classList.add('hidden');
+        }
     return false;
 }
 /*************************************************************************************************************/
@@ -255,15 +357,26 @@ function start_page(){
         $("#quickreports").classList.toggle('hidden');
 
     });
- 
-  $('#quick-reports-adress').addEventListener('change',setReportAdress);
-  $('#my-team-folder-adress').addEventListener('change',setFolderAdress);
+ /// check if there is data in the array
+    $("#quick-reports-adress").classList.add('hidden');
+    $("#quick-reports-expand-link").classList.add('hidden');
+     $('#quick-reports-adress').addEventListener('change',setReportAdress);
+    $('#my-team-folder-adress').addEventListener('change',setFoldersAdress);
     
     document.getElementById("folder-options-putton").addEventListener('click',function(e){
         $("#my-team-folders-form").classList.toggle('hidden');
 
     });
+     document.getElementById("quickreports-cancel").addEventListener('click',function(e){
+        $("#quickreports").classList.toggle('hidden');
+
+    });
+     document.getElementById("folders-cancel").addEventListener('click',function(e){
+        $("#my-team-folders-form").classList.toggle('hidden');
+
+    });
     document.getElementById("quickrports-save").addEventListener('click',quickrports_save);
+    document.getElementById("folders-save").addEventListener('click',folders_save);
 
     var all_tabs=all("#tab");
     for(var i=0;i<all_tabs.length;i++){

@@ -273,7 +273,7 @@ nav{
     border: none;
     background-color: white;
 }
-#quickrports-save {
+.save-button {
     background-color: black;
     border: none;
     color: white;
