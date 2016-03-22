@@ -158,7 +158,7 @@ function checkinputs(){
 
 /*****************************************************************************************************/
 function savelinksReports () {
-    var names=[];
+ /*   var names=[];
     var url=[];
     var array=[];
     names = all(".reportname");
@@ -202,7 +202,7 @@ function savelinksReports () {
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
     var link = JSON.parse(localStorage.getItem("linkarray"));
         //updatelinksReports();
-
+*/
 }
 /*************************************************************************************/
 function updatelinksReports () {
