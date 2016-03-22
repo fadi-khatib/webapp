@@ -156,7 +156,7 @@ function checkinputs(){
 
 
     }
-    for(i=0;i<6;i++){
+    for(i=0;i<3;i++){
     url[i].children[1].style.border="none";
     name[i].children[1].style.border="none";
     }
