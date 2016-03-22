@@ -177,7 +177,8 @@ function savelinksReports () {
         
         var rn = name[i].children[1].value;
         var ru = url[i].children[1].value;   
-        alert(rn);
+        alert("report name"+rn);
+        alert("report url"+ru);
         array.push({
                 "name":rn,
                 "url":ru
@@ -185,9 +186,7 @@ function savelinksReports () {
     
         
     }
-    alert(name.length);
-    alert(url.length);
-    alert(array.length);
+    alert("arraylinght"+array.length);
     var linkarray = JSON.parse(localStorage.getItem("linkarray"));
     if(linkarray==null)
     {
@@ -202,7 +201,7 @@ function savelinksReports () {
         });
     }
     }
-    alert(linkarray.length);
+    alert("linkarray.length"+linkarray.length);
      for (i=0;i<3;i++)
     {
         linkarray[i].name=array[i].name;
@@ -210,7 +209,8 @@ function savelinksReports () {
         
     }
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
-
+    var link = JSON.parse(localStorage.getItem("linkarray"));
+    alert("link"+link.length);
         updatelinksReports();
 
 }
@@ -223,16 +223,19 @@ function updatelinksReports () {
     var selectReports = $("#quick-reports-adress");
     var button = $("#quick-reports-expand-link");
     var setting=$("#quickreports");
-     alert(selectReports.length);
+    alert("select lenght"+selectReports.length);
+    
     for(var i=0; i<3; i++)
     {
         selectReports.remove(selectReports.i);
     }
+
     var valReports = JSON.parse(localStorage.getItem("linkarray"));
             if (valReports==null) return;
+            alert("new reports"+valReports.lingth);
         for(var i=0; i<3; i++){      
         if(valReports[i]!=null){
-                var myOption = document.createElement("options");
+             /*   var myOption = document.createElement("options");
                 myOption.text = valReports[i].name;
                 myOption.value = valReports[i].name;
                 selectReports.appendChild(myOption);
@@ -246,9 +249,10 @@ function updatelinksReports () {
                     selectReports.classList.remove("hidden");
 
                     button.classList.remove("hidden");
-                    setting.style.marginTop="0px";
+                    //setting.style.marginTop="0px";
 
-                }
+                }*/
+                i++;
         }   
         else
         {
@@ -263,9 +267,9 @@ function updatelinksReports () {
     }
        if (flag==3)
     {
-        selectReports.className+=" hidden";
-        button.className+=" hidden";
-        setting.style.marginTop="40px";
+       // selectReports.className+=" hidden";
+        setting.className+=" hidden";
+       // setting.style.marginTop="40px";
     }
 
 }
