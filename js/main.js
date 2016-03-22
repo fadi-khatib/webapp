@@ -177,7 +177,7 @@ function savelinksReports () {
         
         var rn = name[i].children[1].value;
         var ru = url[i].children[1].value;   
- 
+        alert(rn);
         array.push({
                 "name":rn,
                 "url":ru
@@ -185,9 +185,9 @@ function savelinksReports () {
     
         
     }
-    alert(name[0].children[1].value);
-    alert(url[0].children[1].value);
-    alert(array[0].name);
+    alert(name.length);
+    alert(url.length);
+    alert(array.length);
     var linkarray = JSON.parse(localStorage.getItem("linkarray"));
     if(linkarray==null)
     {
@@ -202,15 +202,13 @@ function savelinksReports () {
         });
     }
     }
-
+    alert(linkarray.length);
      for (i=0;i<3;i++)
     {
         linkarray[i].name=array[i].name;
         linkarray[i].url=array[i].url;
         
     }
-
-    alert(linkarray[0].name);
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
 
         updatelinksReports();
@@ -286,10 +284,10 @@ function selectIFrame() {
 function quickrports_save(){
 
        if(checkinputs()==true){
-    /*        savelinksReports();
+           savelinksReports();
            $("#quickreports").classList.toggle('hidden');
            selectIFrame();
-      */  
+       
     }
 
 }
