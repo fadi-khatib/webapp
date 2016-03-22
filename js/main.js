@@ -142,12 +142,12 @@ function checkinputs(){
             url[i].children[1].focus();
             return false;
         }
-       /* else if((url[i].children[1].value =="") && (name[i].children[1].value =="") )
+        else if((url[i].children[1].value =="") && (names[i].children[1].value =="") )
         {
             url[i].children[1].style.border="none";
-             name[i].children[1].style.border="none";
+             names[i].children[1].style.border="none";
           
-        }*/
+        }
     }
     for(var i=0;i<3;i++){
     url[i].children[1].style.border="none";
@@ -221,10 +221,18 @@ function quickrports_save(){
 }
 /*************************************************************************************************************/
 function setReportAdress() {
-var el=document.getElementById("quick-reports-adress");
-  $('#quick-reports-expand-link').href=el.options[el.selectedIndex].value;
-  $('#quickreportsiframe').src=el.options[el.selectedIndex].value;
-    return false;
+    var el=document.getElementById("quick-reports-adress");
+    if(el.options[el.selectedIndex]!=null){
+        $('#quick-reports-expand-link').href=el.options[el.selectedIndex].value;
+        $('#quickreportsiframe').src=el.options[el.selectedIndex].value;
+        $("#quick-reports-adress").classList.remove('hidden');
+        $("#quick-reports-expand-link").classList.remove('hidden');
+    }
+    else{
+        $("#quick-reports-adress").classList.add('hidden');
+        $("#quick-reports-expand-link").classList.add('hidden');
+    }
+        return false;
 }
 
  function setFolderAdress() {
