@@ -235,7 +235,7 @@ function updatelinksReports () {
             alert("new reports"+valReports.lingth);
         for(var i=0; i<3; i++){      
         if(valReports[i]!=null){
-             /*   var myOption = document.createElement("options");
+             /*  var myOption = document.createElement("options");
                 myOption.text = valReports[i].name;
                 myOption.value = valReports[i].name;
                 selectReports.appendChild(myOption);
