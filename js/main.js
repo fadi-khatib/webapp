@@ -124,94 +124,83 @@ function  keyEvent(e){
 
 
 function checkinputs(){
-    var name=[];
+    var names=[];
     var url=[];
-    var i;
-   /* var urlExp = new RegExp("https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}", i); 
-    var linkExp = new RegExp(/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/);
-*/
-    name = all(".reportname");
+    
+    names = all(".reportname");
     url = all(".reporturl");
-    // check if empty
-    for(i=0;i<3;i++){
-        if ((name[i].children[1].value =="") && (url[i].children[1].value !=""))
+    for(var i=0;i<3;i++){
+        if ((names[i].children[1].value =="") && (url[i].children[1].value !=""))
            {
-            name[i].children[1].style.border="thick solid red";
-            name[i].children[1].focus();
+            names[i].children[1].style.border="thick solid red";
+            names[i].children[1].focus();
             return false;
            }
-      else  if ((name[i].children[1].value !="") && (url[i].children[1].value ==""))
+      else  if ((names[i].children[1].value !="") && (url[i].children[1].value ==""))
         {
             url[i].children[1].style.border="thick solid red";
             url[i].children[1].focus();
             return false;
         }
-        else if((url[i].children[1].value =="") && (name[i].children[1].value =="") )
+       /* else if((url[i].children[1].value =="") && (name[i].children[1].value =="") )
         {
             url[i].children[1].style.border="none";
              name[i].children[1].style.border="none";
           
-        }
-
-
-
+        }*/
     }
-    for(i=0;i<3;i++){
+    for(var i=0;i<3;i++){
     url[i].children[1].style.border="none";
-    name[i].children[1].style.border="none";
+    names[i].children[1].style.border="none";
     }
     return true;
 }
 
 /*****************************************************************************************************/
 function savelinksReports () {
-    var name=[];
+    var names=[];
     var url=[];
     var array=[];
-    name = all(".reportname");
+    names = all(".reportname");
     url = all(".reporturl");
 
-    var i;
-    for (i=0;i<3;i++)
+    
+    for (var i=0;i<3;i++)
     {
         
-        var rn = name[i].children[1].value;
-        var ru = url[i].children[1].value;   
-        alert("report name"+rn);
-        alert("report url"+ru);
-        array.push({
-                "name":rn,
-                "url":ru
-        });
-    
+        var rn = names[i].children[1].value;
+        var ru = url[i].children[1].value;
+       // if(rn!=""&&ru!=""){   
+            array.push({
+                    "name":rn,
+                    "url":ru
+            });
+        //}
         
     }
-    alert("arraylinght"+array.length);
     var linkarray = JSON.parse(localStorage.getItem("linkarray"));
-    if(linkarray==null)
-    {
+    if(linkarray==null){
         linkarray=[];
-          for (i=0;i<3;i++)
-    {
+        for (i=0;i<3;i++)
+        {
         linkarray.push({
                 "name":"",
                 "url":""
 
-
         });
+        }
     }
-    }
-    alert("linkarray.length"+linkarray.length);
+    $("#quick-reports-adress").innerHTML="";
      for (i=0;i<3;i++)
     {
         linkarray[i].name=array[i].name;
         linkarray[i].url=array[i].url;
-        $("#quick-reports-adress").innerHTML+="<option value='"+linkarray[i].name+"'>"+linkarray[i].name+"</option>";
-        
+        if(array[i].name!="" && array[i].url!="" ){
+            $("#quick-reports-adress").innerHTML+="<option value='"+linkarray[i].url+"'>"+linkarray[i].name+"</option>";
+        }
     }
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
     var link = JSON.parse(localStorage.getItem("linkarray"));
-    alert("link"+link.length);
         //updatelinksReports();
 
 }
@@ -296,14 +285,28 @@ function quickrports_save(){
     }
 
 }
+/*************************************************************************************************************/
+function setReportAdress() {
 
+  var el=document.getElementById("quick-reports-adress");
+  $('#quick-reports-expand-link').href=el.options[el.selectedIndex].value;
+  $('#quickreportsiframe').src=el.options[el.selectedIndex].value;
+    return false;
+}
 
+ function setFolderAdress() {
 
+     var el=document.getElementById("my-team-folder-adress");
+     if(el.options!==undefined)
+  $('#my-folders-src').src=el.options[el.selectedIndex].value;
+    return false;
+}
+/*************************************************************************************************************/
 function updatePage (config) {
         updateNotifications(config.notification);
         updateActionList(config.quickActions);
 }
-
+/***********************************************************************************************************/
 function start_page(){
     UTILS.ajax("data/config.json" , {done: updatePage});       
 
@@ -311,6 +314,9 @@ function start_page(){
         $("#quickreports").classList.toggle('hidden');
 
     });
+ 
+  $('#quick-reports-adress').addEventListener('change',setReportAdress);
+  $('#my-team-folder-adress').addEventListener('change',setFolderAdress);
     
     document.getElementById("folder-options-putton").addEventListener('click',function(e){
         $("#my-team-folders-form").classList.toggle('hidden');
