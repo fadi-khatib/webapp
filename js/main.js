@@ -213,7 +213,7 @@ function updatelinksReports () {
     var selectReports = $("#quick-reports-adress");
     var button = $("#quick-reports-expand-link");
     var setting=$("#quickreports");
-    alert("select lenght"+selectReports.length);
+    //alert("select lenght"+selectReports.length);
     
     for(var i=0; i<3; i++)
     {
