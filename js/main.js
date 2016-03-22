@@ -298,7 +298,7 @@ function quickrports_save(){
 
 function updatePage (config) {
         updateNotifications(config.notification);
-         updateActionList(config.quickActions);
+        updateActionList(config.quickActions);
 }
 
 function start_page(){

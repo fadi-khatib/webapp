@@ -86,9 +86,11 @@ nav{
 	line-height: 38px;
 
 }
+
 .menu-caption > p{
-	        overflow: hidden;
-	        height: 30px;
+	overflow: hidden;
+	height: 30px;
+
 }
 .nav-section>p{
 	height: 30px;
@@ -101,10 +103,27 @@ nav{
     display: none;
     position: absolute;
 }
+
+
 .nav-section:hover{
 	background-color: rgb(38,38,38);
 }
+.action-list > li {
+    background: white;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding: 2%;
+    font-size: 13px;
+    text-align: left;
+    border:none;
 
+}
+.action-list > li >a{
+ text-decoration: none;
+ color:black;
+}
+.action-list > li > a:hover{
+	text-decoration: underline;
+}
 .nav-section:hover .action-list{
 	width: 23.2%;
     background-color: white;
@@ -116,7 +135,7 @@ nav{
 }
 .tabs{
 	width: 100%;
-	height: 500px;
+	height: 800px;
 	margin-top:15px; 
 }
 .tabs-options{
@@ -154,7 +173,7 @@ nav{
 .tabs-content{
     width: 100%;
     background: #E5E5E5;
-    height: 500px;
+    height: 770px;
 }
 .quick-reports-options{
 	float: right;
@@ -181,27 +200,62 @@ nav{
   float: right;
    padding: 15px 15px 8px 15px;
 }
+#quick-reports {
+    height: 360px;
+}
 .reports-form {
     margin-top: 60px;
     position: absolute;
     width: 80%;
+    box-shadow: 0 4px 7px 2px rgba(50, 50, 50, 0.8);
+    height: 300px;
+    background-color: white;
+}
+.folder-content {
+    height: 600px;
 }
 .fieldset {
     width: 90%;
     margin: auto;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #dcdada;
+    height: 40px;
+    border-radius: 5px;
 } 
-.reportname {
-    display: inline;
-    margin: auto;
+.reportnumber {
+    padding-left: 5%;
+    width: 10%;
+    line-height: 40px;
 }
-.reporturl {
+
+.reportinput {
+    width: 65%;
+}
+.reportlabel {
+    width: 10%;
+    padding-right: 5%;
+}
+
+.name {
     display: inline;
+    left: 25%;
+    position: absolute;
+    width: 30%;
+    line-height: 40px;
+}
+.url {
+     display: inline;
+    position: absolute;
+    width: 30%;
+    left: 65%;
     float: right;
+  line-height: 40px;
 }
 .cancel-save {
+
     float: right;
-    margin-right: 3%;
+    padding: 2%;
+
 }
 .hidden{
 	display: none;
@@ -211,4 +265,23 @@ nav{
 }
 .active-tab > a{
 	color: black !important;
+}
+#quickreports-cancel {
+    padding-right: 8px;
+    width: 60px;
+    height: 20px;
+    border: none;
+    background-color: white;
+}
+#quickrports-save {
+    background-color: black;
+    border: none;
+    color: white;
+    height: 25px;
+    width: 63px;
+    border-radius: 2px;
+}
+iframe {
+    height: 715px;
+    width: 100%;
 }
