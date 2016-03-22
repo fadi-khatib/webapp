@@ -158,7 +158,7 @@ function checkinputs(){
 
 /*****************************************************************************************************/
 function savelinksReports () {
- /*   var names=[];
+    var names=[];
     var url=[];
     var array=[];
     names = all(".reportname");
@@ -200,95 +200,28 @@ function savelinksReports () {
         }
     }
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
-    var link = JSON.parse(localStorage.getItem("linkarray"));
+    setReportAdress();
+    //var link = JSON.parse(localStorage.getItem("linkarray"));
         //updatelinksReports();
-*/
+
 }
 /*************************************************************************************/
-function updatelinksReports () {
 
-
-    var flag;
-    flag=0;
-    var selectReports = $("#quick-reports-adress");
-    var button = $("#quick-reports-expand-link");
-    var setting=$("#quickreports");
-    //alert("select lenght"+selectReports.length);
-    
-    for(var i=0; i<3; i++)
-    {
-        selectReports.remove(selectReports.i);
-    }
-
-    var valReports = JSON.parse(localStorage.getItem("linkarray"));
-            if (valReports==null) return;
-            alert("new reports"+valReports.lingth);
-        for(var i=0; i<3; i++){      
-        if(valReports[i]!=null){
-             /*  var myOption = document.createElement("options");
-                myOption.text = valReports[i].name;
-                myOption.value = valReports[i].name;
-                selectReports.appendChild(myOption);
-                if(valReports[i].name=="")
-                {
-                    myOption.classList.add("hidden");
-                    flag=flag+1;
-                }
-                else
-                {
-                    selectReports.classList.remove("hidden");
-
-                    button.classList.remove("hidden");
-                    //setting.style.marginTop="0px";
-
-                }*/
-                i++;
-        }   
-        else
-        {
-            var myOption = document.createElement("option");
-                myOption.text = "";
-                myOption.value = "";
-                selectReports.appendChild(myOption);
-
-                    myOption.classList.add("hidden");
-                     flag=flag+1;
-        }
-    }
-       if (flag==3)
-    {
-       // selectReports.className+=" hidden";
-        setting.className+=" hidden";
-       // setting.style.marginTop="40px";
-    }
-
-}
 /*****************************************************************************************************************/
-function selectIFrame() {
-    var selReports = $("#quick-reports-adress");
-    var selIndex = selReports.selectedIndex;
-    var newURL = JSON.parse(localStorage.getItem("linkarray"));
-    var iframeWindow = $("#quickreportsiframe");
-    if(newURL[selIndex]!=null){
-        iframeWindow.src = newURL[selIndex].url;
-        $("#quick-reports-expand-link").href = newURL[selIndex].url;
-    }
-}
+
 /*****************************************************************************************************************/
 function quickrports_save(){
 
        if(checkinputs()==true){
            savelinksReports();
            $("#quickreports").classList.toggle('hidden');
-           selectIFrame();
        
     }
 
 }
 /*************************************************************************************************************/
 function setReportAdress() {
-
-  var el=document.getElementById("quick-reports-adress");
+var el=document.getElementById("quick-reports-adress");
   $('#quick-reports-expand-link').href=el.options[el.selectedIndex].value;
   $('#quickreportsiframe').src=el.options[el.selectedIndex].value;
     return false;
