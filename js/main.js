@@ -206,12 +206,13 @@ function savelinksReports () {
     {
         linkarray[i].name=array[i].name;
         linkarray[i].url=array[i].url;
+        $("#quick-reports-adress").innerHTML+="<option value='"+linkarray[i].name+"'>"+linkarray[i].name+"</option>";
         
     }
     localStorage.setItem("linkarray" , JSON.stringify(linkarray));
     var link = JSON.parse(localStorage.getItem("linkarray"));
     alert("link"+link.length);
-        updatelinksReports();
+        //updatelinksReports();
 
 }
 /*************************************************************************************/
@@ -308,6 +309,11 @@ function start_page(){
 
     document.getElementById("quick-reports-options-putton").addEventListener('click',function(e){
         $("#quickreports").classList.toggle('hidden');
+
+    });
+    
+    document.getElementById("folder-options-putton").addEventListener('click',function(e){
+        $("#my-team-folders-form").classList.toggle('hidden');
 
     });
     document.getElementById("quickrports-save").addEventListener('click',quickrports_save);
