@@ -1,40 +1,40 @@
 body{
-	background: url(../img/body-background.jpg) 100% fixed;
+    background: url(../img/body-background.jpg) 100% fixed;
     background-size: cover;
-	margin: auto;
+    margin: auto;
 }
 header{
-	background-color: black;
-	width: 100%;
+    background-color: black;
+    width: 100%;
 }
 .layout-wrap{
-	width: 80%;
-	margin: auto;
-	padding: 1%;
+    width: 80%;
+    margin: auto;
+    padding: 1%;
 
 }
 .search-box{
-	float:right;
-	margin-top: 15px;
+    float:right;
+    margin-top: 15px;
 }
 
 .layout-wrap > a >img {
-	margin-top: 15px;
+    margin-top: 15px;
 }
 
 
 .notifications{
-	background-color: #E5E5E5;
-	padding: 0.5%;
+    background-color: #E5E5E5;
+    padding: 0.5%;
 }
 .page-body {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
 nav{
-	width: 100%;
-	text-align: center;
-	
+    width: 100%;
+    text-align: center;
+    
 }
 .nav-section {
    width: 29%;
@@ -51,52 +51,66 @@ nav{
 
 }
 .last-nav{
-	float:right;
-/*	background: url("../img/icons/actions-help.png") left 50% top 70px no-repeat black;
+    float:right;
+/*  background: url("../img/icons/actions-help.png") left 50% top 70px no-repeat black;
 */
 }
 .second-nav
 {
-	/*background: url("../img/icons/action-report-top.png") left 50% top 70px no-repeat black;
+    /*background: url("../img/icons/action-report-top.png") left 50% top 70px no-repeat black;
 */
 }
 .first-nav
 {
-	  /* background: url("../img/icons/action-report-new.png") left 50% top 70px no-repeat black;
-	*/float: left;
+      /* background: url("../img/icons/action-report-new.png") left 50% top 70px no-repeat black;
+    */float: left;
 }
 /*.first-menu{
-	bottom: -44px;
+    bottom: -44px;
     position: relative;
 }
 .second-menu,.third-menu{
-	bottom: -62px;
+    bottom: -62px;
     position: relative;
-	}
+    }
 */
 
 .menu{
-	margin-top: 4.5em;
+    margin-top: 4.5em;
 }
 .menu-caption{
-	background-color: #E5E5E5;
-	color: black;
-	height: 38px;
-	text-align: left;
-	line-height: 38px;
+    background-color: #E5E5E5;
+    color: black;
+    height: 38px;
+    text-align: left;
+    line-height: 38px;
 
+}
+.menu-caption:after{
+    float: right;
+    content: "";
+   
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid black;
+    margin: 1em;
+    margin-top: -2.5em;
+    margin-right: 7%;
+}
+.nav-section:hover .menu-caption:after,.nav-section:focus .menu-caption:after{
+    transform: rotate(180deg);
 }
 
 .menu-caption > p{
-	overflow: hidden;
-	height: 30px;
+    overflow: hidden;
+    height: 30px;
 
 }
 .nav-section>p{
-	height: 30px;
+    height: 30px;
 }
 .action-list{
-	width: 23.2%;
+    width: 23.2%;
     background-color: white;
     margin: 0;
     padding: 0;
@@ -106,7 +120,7 @@ nav{
 
 
 .nav-section:hover{
-	background-color: rgb(38,38,38);
+    background-color: rgb(38,38,38);
 }
 .action-list > li {
     background: white;
@@ -122,10 +136,10 @@ nav{
  color:black;
 }
 .action-list > li > a:hover{
-	text-decoration: underline;
+    text-decoration: underline;
 }
 .nav-section:hover .action-list{
-	width: 23.2%;
+    width: 23.2%;
     background-color: white;
     list-style: none;
     margin: 0;
@@ -134,41 +148,41 @@ nav{
     position: absolute;
 }
 .tabs{
-	width: 100%;
-	height: 800px;
-	margin-top:15px; 
+    width: 100%;
+    height: 800px;
+    margin-top:15px; 
 }
 .tabs-options{
-	width: 100%;
-	padding: 0px;
-	height: 30px;
+    width: 100%;
+    padding: 0px;
+    height: 30px;
     margin: 0;
 }
 .tabs-options >li>a{
-	color: white;
-	text-decoration: none;
-	display: block;
+    color: white;
+    text-decoration: none;
+    display: block;
 }
 .tabs-options >li {
-	display: inline-block;
-	width:22%;
-	float:left;
-	background-color: rgb(100,100,100);
-	line-height: 30px;
-	text-align: center;
-	overflow: hidden;
+    display: inline-block;
+    width:22%;
+    float:left;
+    background-color: rgb(100,100,100);
+    line-height: 30px;
+    text-align: center;
+    overflow: hidden;
     height: 30px;
 }
 
 /*.first-option , .sec-option , .therd-option {
-	margin-right:4%;
+    margin-right:4%;
 }*/
 
 .option{
-	margin-right:4%;
+    margin-right:4%;
 }
 .option:last-child{
-	margin-right: 0;
+    margin-right: 0;
 }
 .tabs-content{
     width: 100%;
@@ -176,11 +190,11 @@ nav{
     height: 770px;
 }
 .quick-reports-options{
-	float: right;
-	margin: 1%;
+    float: right;
+    margin: 1%;
 }
 .adress{
-	float: left;
+    float: left;
     margin: 1%;
     width: 17%;
     height: 27px
@@ -258,13 +272,13 @@ nav{
 
 }
 .hidden{
-	display: none;
+    display: none;
 }
 .active-tab{
-	background-color:#E5E5E5 !important;
+    background-color:#E5E5E5 !important;
 }
 .active-tab > a{
-	color: black !important;
+    color: black !important;
 }
 #quickreports-cancel {
     padding-right: 8px;

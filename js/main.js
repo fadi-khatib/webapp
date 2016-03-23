@@ -296,7 +296,7 @@ function savelinksFolders(){
 
 /*****************************************************************************************************************/
 function quickrports_save(){
-
+       
        if(checkinputs()==true){
            savelinksReports();
            $("#quickreports").classList.toggle('hidden');
@@ -350,8 +350,49 @@ function updatePage (config) {
         updateActionList(config.quickActions);
 }
 /***********************************************************************************************************/
+    
+function satrtReportsFolders(){
+    var names=[];
+    var url=[];
+    var array=[];
+    var linkarray = JSON.parse(localStorage.getItem("linkarray"));
+    names = all(".reportname");
+    url = all(".reporturl");
+
+    if(linkarray!=null){
+        for (var i=0;i<3;i++)
+        {
+            
+             names[i].children[1].value=linkarray[i].name;
+             url[i].children[1].value=linkarray[i].url;
+            
+        }
+        quickrports_save();
+    }
+    var foldersarray = JSON.parse(localStorage.getItem("foldersarray"));
+
+    names1 = all(".foldername");
+    url1 = all(".folderurl");
+
+    if(foldersarray!=null){
+        for (var i=0;i<3;i++)
+        {
+            
+             names1[i].children[1].value=foldersarray[i].name;
+             url1[i].children[1].value=foldersarray[i].url;
+            
+        }
+        folders_save();
+    }
+  
+
+}
+
+
+
 function start_page(){
-    UTILS.ajax("data/config.json" , {done: updatePage});       
+    UTILS.ajax("data/config.json" , {done: updatePage}); 
+    satrtReportsFolders();      
 
     document.getElementById("quick-reports-options-putton").addEventListener('click',function(e){
         $("#quickreports").classList.toggle('hidden');
