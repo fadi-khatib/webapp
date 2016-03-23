@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,8 @@
 			<a href="#"><img src="img/logo-netcraft.svg" alt="netcraft"></a>
 
 			<form class="search-box">
-				<input type="search" name="q" placeholder="search">
+				<label for="search-area"><span class="hidden">search</span></label>
+				<input type="search" name="q" placeholder="search" id="search-area">
 			</form>
 						 <!--	    <form class="search-form" onsubmit="event.preventDefault()">
 				    	<label class="hidden" for="searchBox">search</label>
@@ -85,12 +87,13 @@
 			<div class="tabs-content">
 
 				<div id="quick-reports">
+						<label for="quick-reports-adress"><span class="hidden">quick reports adress</span></label>
 						<select class="adress" name="adress" id="quick-reports-adress">
 
 	               		</select>
 	               		<div class="quick-reports-options">
-		               		<button class="options-putton" id="quick-reports-options-putton"></button>
-		               		<a href="http://www.w3schools.com" target="_blank" class="expand-link " id="quick-reports-expand-link"><img src="./img/icons/expand.png"></a>
+		               		<button class="options-putton" id="quick-reports-options-putton"><span class="hidden">options</span></button>
+		               		<a href="http://www.w3schools.com" target="_blank" class="expand-link " id="quick-reports-expand-link"><img src="./img/icons/expand.png" alt="expand"></a>
 	               		</div>
 
 
@@ -151,7 +154,7 @@
 
 				<div id="my-folders" class="hidden">
 					<div class="quick-reports-options">
-		               	<a href="http://www.w3schools.com" target="_blank" class="expand-link"><img src="./img/icons/expand.png"></a>
+		               	<a href="http://www.w3schools.com" target="_blank" class="expand-link"><img src="./img/icons/expand.png" alt="expandIcon"></a>
 	               	</div>
 	            	<div class="folder-content">
 	                	<iframe src="http://www.w3schools.com" frameborder="0" class="frame" id="folders-src"></iframe>
@@ -161,12 +164,13 @@
 				<div id="my-team-folders" class="hidden">
 
 						<div id="quick-reports">
+						<label for="my-team-folder-adress"><span class="hidden">my team folders adress</span></label>
 						<select class="adress" name="adress" id="my-team-folder-adress">
 							
 	               		</select>
 	               		<div class="quick-reports-options" id="my-team-folders-options">
-		               		<button class="options-putton" id="folder-options-putton"></button>
-		               		<a href="http://www.w3schools.com" target="_blank" class="expand-link " id="folders-expand-link"><img src="./img/icons/expand.png"></a>
+		               		<button class="options-putton" id="folder-options-putton"><span class="hidden">options</span></button>
+		               		<a href="http://www.w3schools.com" target="_blank" class="expand-link " id="folders-expand-link"><img src="./img/icons/expand.png" alt="expand"></a>
 	               		</div>
 
 
@@ -182,7 +186,7 @@
                                 <input class="reportinput" id="folder-name1" type="text"  placeholder="Name">
                             </div>
                             <div class="inputreport folderurl url">
-                                <label class="reportlabel" for="url1">URL</label>
+                                <label class="reportlabel" for="folder-url1">URL</label>
                                 <input class="reportinput urlinput" type="url" id="folder-url1"   placeholder="URL">
                             </div>
                         </fieldset>
@@ -228,7 +232,7 @@
 
 				<div id="public-folders" class="hidden">
 					<div class="quick-reports-options">
-		               	<a href="http://www.w3schools.com" target="_blank" class="expand-link"><img src="./img/icons/expand.png"></a>
+		               	<a href="http://www.w3schools.com" target="_blank" class="expand-link"><img src="./img/icons/expand.png" alt="expand-icon"></a>
 	               	</div>
 	            	<div class="folder-content">
 	                	<iframe src="" frameborder="0" class="frame" id="my-folders-src"></iframe>
